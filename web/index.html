@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breadstick Preview</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #010003;
+        --screen: #080512;
+        --panel: #160b2d;
+        --text: #f4ebff;
+        --accent: #9d8cff;
+        --accent-2: #c6b4ff;
+        --muted: #a79cc5;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, #0c0719, #231445);
+        color: var(--text);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .device {
+        width: min(92vw, 280px);
+        border-radius: 28px;
+        background: linear-gradient(145deg, #26194d, #130c24);
+        padding: 18px;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+      }
+
+      .screen {
+        width: 100%;
+        aspect-ratio: 135 / 240;
+        border-radius: 18px;
+        background: linear-gradient(180deg, #181030, #0f0b1f);
+        border: 2px solid #4b3a74;
+        padding: 14px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      .title {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--accent);
+        margin-bottom: 6px;
+      }
+
+      .subtitle {
+        font-size: 12px;
+        color: var(--muted);
+        margin-bottom: 8px;
+      }
+
+      .content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 8px;
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      .row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 8px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.035);
+      }
+
+      .row.active {
+        background: linear-gradient(90deg, rgba(157, 140, 255, 0.24), rgba(208, 188, 255, 0.14));
+        border: 1px solid rgba(157, 140, 255, 0.35);
+      }
+
+      .card-panel {
+        margin-top: 4px;
+        padding: 10px;
+        border-radius: 14px;
+        background: linear-gradient(140deg, rgba(157, 140, 255, 0.24), rgba(236, 224, 255, 0.1));
+        border: 1px solid rgba(208, 188, 255, 0.28);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
+
+      .card-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--accent-2);
+        margin-bottom: 4px;
+      }
+
+      .card-subtitle {
+        font-size: 11px;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
+
+      .pill {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--panel), #3c2d69);
+        color: var(--accent-2);
+        font-size: 11px;
+        font-weight: 600;
+      }
+
+      .controls {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 14px;
+      }
+
+      button {
+        border: 0;
+        border-radius: 999px;
+        padding: 9px 12px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        background: #e8ddff;
+        color: #24153d;
+      }
+
+      button.secondary {
+        background: #3f2f6c;
+        color: var(--text);
+      }
+
+      .footer {
+        margin-top: 10px;
+        text-align: center;
+        font-size: 12px;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="device">
+      <div class="screen">
+        <div class="title" id="title">Breadstick</div>
+        <div class="subtitle" id="subtitle">Pocket app preview</div>
+        <div class="content" id="content"></div>
+      </div>
+      <div class="controls">
+        <button id="buttonA">Btn A</button>
+        <button class="secondary" id="buttonB">Btn B</button>
+        <button class="secondary" id="buttonShake">Shake</button>
+      </div>
+      <div class="footer">Preview only — useful for UI flow before flashing</div>
+    </div>
+
+    <script src="app-preview.js"></script>
+  </body>
+</html>
